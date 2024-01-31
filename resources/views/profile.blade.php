@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('title', 'Profile')
@@ -25,11 +24,13 @@
                         <label class="labels">Email</label>
                         <input type="text" name="email" disabled class="form-control" value="{{ auth()->user()->email }}" placeholder="Email">
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-2">
                         <label class="labels">Phone</label>
                         <input type="text" name="phone" class="form-control" placeholder="Phone Number" value="{{ auth()->user()->phone }}">
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label class="labels">Budget</label>
+                        <input type="number" name="budget" class="form-control" placeholder="Your Budget" value="{{ auth()->user()->budget }}">
                     </div>
                 </div>
 

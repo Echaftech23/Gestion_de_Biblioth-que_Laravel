@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,16 @@ Route::middleware('auth')->group(function () {
     Route::get('dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::controller(BookController::class)->prefix('books')->group(function () {
+        Route::get('', 'index')->name('books');
+        Route::get('create', 'create')->name('books.create');
+        Route::post('store', 'store')->name('books.store');
+        Route::get('show/{id}', 'show')->name('books.show');
+        Route::get('edit/{id}', 'edit')->name('books.edit');
+        Route::put('edit/{id}', 'update')->name('books.update');
+        Route::delete('destroy/{id}', 'destroy')->name('books.destroy');
+    });
 
     Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
 });
