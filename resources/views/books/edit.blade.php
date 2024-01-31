@@ -11,31 +11,31 @@
     <div class="row mb-3">
         <div class="col">
             <label class="form-label text-dark" for="title">Title</label>
-            <input type="text" id="title" name="title" class="form-control" placeholder="Enter Book Title" required>
+            <input type="text" name="title" class="form-control" placeholder="Title" value="{{ $book->title }}" required>
         </div>
         <div class="col">
             <label class="form-label text-dark" for="author">Author</label>
-            <input type="text" id="author" name="author" class="form-control" placeholder="Enter Author Name" required>
+            <input type="text" name="author" class="form-control" placeholder="Author" value="{{ $book->author }}" required>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col">
             <label class="form-label text-dark" for="publication_year">Publication Year</label>
-            <input type="date" id="publication_year" name="publication_year" class="form-control" required>
+            <input type="date" name="publication_year" class="form-control" placeholder="published At" value="{{ $book->publication_year }}" required>
         </div>
         <div class="col">
             <label class="form-label text-dark" for="genre">Genre</label>
-            <input type="text" id="genre" name="genre" class="form-control" placeholder="Enter Genre" required>
+            <input type="text" name="genre" class="form-control" placeholder="Book Genre" value="{{ $book->genre }}" required>
         </div>
     </div>
     <div class="row mb-3">
         <div class="col">
             <label class="form-label text-dark" for="total_copies">Total Copies</label>
-            <input type="number" id="total_copies" name="total_copies" class="form-control" placeholder="Total copies" required>
+            <input type="text" name="total_copies" class="form-control" placeholder="total Copies" value="{{ $book->total_copies }}" required>
         </div>
         <div class="col">
             <label class="form-label text-dark" for="available_copies">Available Copies</label>
-            <input type="number" id="available_copies" name="available_copies" class="form-control" placeholder="available copies" required>
+            <input type="text" name="available_copies" class="form-control" placeholder="Available Copies" value="{{ $book->available_copies }}" required>
         </div>
     </div>
     <div class="row mb-3">
@@ -47,10 +47,10 @@
     <div class="row mb-3">
         <div class="col">
             <label class="form-label text-dark" for="description">Descriptoin</label>
-            <textarea rows="4" id="description" class="form-control" name="description" placeholder="Add Book Descriptoin"></textarea>
+            <textarea class="form-control" name="description" placeholder="Descriptoin" readonly>{{ $book->description }}</textarea>
         </div>
     </div>
-    <div class="row">
+    <div class="row ml-1">
         <div class="d-grid">
             <button class="btn btn-warning">Update</button>
         </div>

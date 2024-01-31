@@ -5,12 +5,14 @@
 @section('contents')
 <div class="d-flex align-items-center justify-content-between">
     <h1 class="mb-0">List Books</h1>
-    <a href="{{ route('books.create') }}" class="btn btn-primary">Add Book</a>
+    <a href="{{ route('books.create') }}" class="btn btn-info">Add Book</a>
 </div>
 <hr />
 @if(Session::has('success'))
-<div class="alert alert-success" role="alert">
-    {{ Session::get('success') }}
+<div class="d-flex flex-column-reverse align-items-end">
+    <div class="alert alert-success col-4" role="alert">
+        {{ Session::get('success') }}
+    </div>
 </div>
 @endif
 <table class="table table-hover">
@@ -32,10 +34,10 @@
         @foreach($book as $bk)
         <tr>
             <td class="align-middle">{{ $loop->iteration }}</td>
-            <td class="align-middle">{{ $bk->title }}</td>
+            <td class="align-middle">{{ (strlen($bk->title) > 15 ? substr($bk->title, 0, 15) . '....' : $bk->title) }}</td>
             <td class="align-middle">{{ $bk->author }}</td>
             <td class="align-middle">{{ $bk->genre }}</td>
-            <td class="align-middle">{{ (strlen($bk->description) > 20 ? substr($bk->description, 0, 20) . '....' : $bk->description) }}</td>
+            <td class="align-middle">{{ (strlen($bk->description) > 15 ? substr($bk->description, 0, 15) . '....' : $bk->description) }}</td>
             <td class="align-middle">{{ $bk->publication_year }}</td>
             <td class="align-middle">{{ $bk->total_copies }}</td>
             <td class="align-middle">{{ $bk->available_copies }}</td>
