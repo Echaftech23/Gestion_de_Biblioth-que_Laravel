@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +46,24 @@ Route::middleware('auth')->group(function () {
         Route::delete('destroy/{id}', 'destroy')->name('books.destroy');
     });
 
+    Route::controller(ReservationController::class)->prefix('reservations')->group(function () {
+        Route::get('', 'index')->name('reservations');
+        Route::get('create', 'create')->name('reservations.create');
+        Route::post('store', 'store')->name('reservations.store');
+        Route::get('show/{id}', 'show')->name('reservations.show');
+        Route::get('edit/{id}', 'edit')->name('reservations.edit');
+        Route::put('edit/{id}', 'update')->name('reservations.update');
+        Route::delete('destroy/{id}', 'destroy')->name('reservations.destroy');
+    });
+
     Route::get('/profile', [App\Http\Controllers\AuthController::class, 'profile'])->name('profile');
+});
+
+Route::controller(HomeController::class)->prefix('views')->group(function () {
+    Route::get('', 'index')->name('views');
+    Route::get('create', 'create')->name('views.create');
+    Route::post('store', 'store')->name('views.store');
+    Route::get('show/{id}', 'show')->name('views.show');
+    Route::put('edit/{id}', 'update')->name('views.update');
+    Route::delete('destroy/{id}', 'destroy')->name('views.destroy');
 });

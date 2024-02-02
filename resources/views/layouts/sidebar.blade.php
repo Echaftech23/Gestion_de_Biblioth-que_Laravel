@@ -19,6 +19,12 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('reservations') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Reservation</span></a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('books') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Book</span></a>

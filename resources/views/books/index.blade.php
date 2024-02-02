@@ -43,9 +43,9 @@
             <td class="align-middle">{{ $bk->available_copies }}</td>
             <td class="align-middle">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="{{ route('books.show', $bk->id) }}" type="button" class="btn btn-secondary">Detail</a>
+                    <a href="{{ route('books.show', $bk->id) }}" type="button" class="btn btn-primary">Detail</a>
                     <a href="{{ route('books.edit', $bk->id)}}" type="button" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('books.destroy', $bk->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Delete?')">
+                    <form action="{{ route('books.destroy', $bk->id) }}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Are You sure You want To Delete This Book?')">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger m-0">Delete</button>
@@ -56,7 +56,7 @@
         @endforeach
         @else
         <tr>
-            <td class="text-center" colspan="5">Product not found</td>
+            <td class="text-center" colspan="5">Book not found</td>
         </tr>
         @endif
     </tbody>
