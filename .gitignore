@@ -6,11 +6,6 @@
 /storage/*.key
 /vendor
 /public/admin_assets/vendor
-
-/resources/views/reservations/
-/resources/views/show.blade.php
-/resources/views/index.blade.php
-
 .env
 .env.backup
 .env.production
